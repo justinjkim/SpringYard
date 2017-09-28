@@ -17,31 +17,31 @@ public class CustomerServiceImpl implements CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    @Transactional
+
     @Override
     public List<Customer> listAllCustomers() {
         return null;
     }
 
-    @Transactional
+
     @Override
     public void createCustomer(Customer customer) {
 
     }
 
-    @Transactional
+
     @Override
     public void findCustomer(Customer customer) {
 
     }
 
-    @Transactional
+
     @Override
     public void updateCustomer(Customer customer) {
 
     }
 
-    @Transactional
+
     @Override
     public void deleteCustomer(Customer customer) {
 
