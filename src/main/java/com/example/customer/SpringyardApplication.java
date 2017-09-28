@@ -1,4 +1,4 @@
-package com.example.springyard;
+package com.example.customer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
