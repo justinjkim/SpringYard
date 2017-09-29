@@ -32,9 +32,9 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public List<Customer> findCustomer(String search) {
-        return jdbcTemplate.query("SELECT firstname, lastname, phone, email FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?) OR ? = ''  LIMIT 50",
+        return jdbcTemplate.query("SELECT firstname, lastname, phone, email FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?) OR ? = '' ",
                 (resultSet, i) -> new Customer(resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("phone"), resultSet.getString("email")),
-                search, search, search, search);
+                search, search, search, search, search);
     }
 
     @Override
@@ -44,7 +44,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void deleteCustomer(Customer customer) {
-  //      jdbcTemplate.query("DELETE FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?)");
+        jdbcTemplate.update("DELETE FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?)", customer.getFirstName(), customer.getLastName(), customer.getPhone(), customer.getEmail());
 
     }
 }
