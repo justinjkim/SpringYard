@@ -19,7 +19,6 @@ public class CustomerRepositoryImpl implements CustomerRepository{
     @Override
     public List<Customer> listAllCustomers() {
         return jdbcTemplate.query(
-                //"SELECT firstname, lastname FROM person WHERE firstname = '"  + search + "' LIMIT 100", <--- don't!!!
                 "SELECT firstname, lastname, phone, email FROM customer",
                 (resultSet, i) -> new Customer(resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("phone"), resultSet.getString("email")));
     }
@@ -30,8 +29,10 @@ public class CustomerRepositoryImpl implements CustomerRepository{
     }
 
     @Override
-    public void findCustomer(Customer customer) {
-
+    public List<Customer> findCustomer(String search) {
+        return jdbcTemplate.query("SELECT firstname, lastname, phone, email FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?) OR ? = ''  LIMIT 50",
+                (resultSet, i) -> new Customer(resultSet.getString("firstname"), resultSet.getString("lastname"), resultSet.getString("phone"), resultSet.getString("email")),
+                search, search, search, search);
     }
 
     @Override
