@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class CustomerController {
@@ -19,11 +20,19 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+//    @GetMapping("/")
+//    public String listAllCustomers(Model model) {
+//        model.addAttribute("customers", customerService.listAllCustomers());
+//        return "all-customers";
+//    }
+
     @GetMapping("/")
-    public String listAllCustomers(Model model) {
-        model.addAttribute("customers", customerService.listAllCustomers());
+    public String findCustomer(Model model, @RequestParam(defaultValue = "") String find) {
+        model.addAttribute("customers", customerService.findCustomer(find));
+        model.addAttribute("find", find);
         return "all-customers";
     }
+
 
     @GetMapping("/customerForm")
     public String customerForm(){
@@ -33,6 +42,17 @@ public class CustomerController {
     @PostMapping("/create-customer")
     public String createCustomer(Customer customer){
         customerService.createCustomer(customer);
+        return "redirect:/";
+    }
+
+    @GetMapping("/deleteCustomerForm")
+    public String deleteCustomerForm(){
+        return "deleteCustomerForm";
+    }
+
+    @PostMapping("/delete-customer")
+    public String deleteCustomer(Customer customer){
+        customerService.deleteCustomer(customer);
         return "redirect:/";
     }
 
