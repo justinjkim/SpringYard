@@ -5,11 +5,19 @@
     <title>All Customers</title>
 </head>
 <body>
-<h1>My Output</h1>
+<h1>Customer Database</h1>
+
+<form action="index.html" th:action="'/'" method="get">
+    <input type="text" name="find" value="" th:value="${find}" placeholder="Search" />
+    <button>Search</button>
+</form>
 
 <ol>
-    <li th:each="customer:${customers}" th:text="${customer.firstName} + ' ' + ${customer.lastName}"></li>
+    <li th:each="customer:${customers}" th:text="${customer.firstName} + ' ' + ${customer.lastName} + ' ' + ${customer.phone} + ' ' + ${customer.email}"></li>
 </ol>
+
+<a th:href="'/customerForm'">Create a Customer</a>
+<a th:href="'/deleteCustomerForm'">Delete a Customer</a>
 
 </body>
 </html>
