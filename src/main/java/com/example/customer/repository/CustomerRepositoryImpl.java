@@ -3,9 +3,11 @@ package com.example.customer.repository;
 import com.example.customer.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CustomerRepositoryImpl implements CustomerRepository{
 
 
@@ -42,6 +44,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void deleteCustomer(Customer customer) {
-        jdbcTemplate.query("DELETE FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?)");
+  //      jdbcTemplate.query("DELETE FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?)");
+
     }
 }
