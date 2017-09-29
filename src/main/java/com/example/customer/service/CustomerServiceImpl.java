@@ -33,8 +33,8 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public void findCustomer(Customer customer) {
-
+    public List<Customer> findCustomer(String find) {
+        return customerRepository.findCustomer(find);
     }
 
 
