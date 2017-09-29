@@ -25,7 +25,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void createCustomer(Customer customer) {
-
+        jdbcTemplate.update("INSERT INTO customer (firstname, lastname, phone, email) VALUES (?, ?, ?, ?)", customer.getFirstName(), customer.getLastName(), customer.getPhone(), customer.getEmail());
     }
 
     @Override
@@ -42,6 +42,6 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void deleteCustomer(Customer customer) {
-
+        jdbcTemplate.query("DELETE FROM customer WHERE (firstname = ? OR lastname = ? OR phone = ? OR email = ?)");
     }
 }
