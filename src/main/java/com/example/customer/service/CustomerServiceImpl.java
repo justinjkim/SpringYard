@@ -28,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void createCustomer(Customer customer) {
-
+        customerRepository.createCustomer(customer);
     }
 
 
