@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> listAllCustomers() {
-        return null;
+        return customerRepository.listAllCustomers();
     }
 
 
