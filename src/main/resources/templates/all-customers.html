@@ -12,12 +12,13 @@
     <button>Search</button>
 </form>
 
-<ol>
-    <li th:each="customer:${customers}" th:text="${customer.firstName} + ' ' + ${customer.lastName} + ' ' + ${customer.phone} + ' ' + ${customer.email}"></li>
+<ol th:each="customer: ${customers}">
+    <li th:text="${customer.firstName} + ' ' + ${customer.lastName} + ' ' + ${customer.phone} + ' ' + ${customer.email}"></li>
 </ol>
 
 <a th:href="'/customerForm'">Create a Customer</a>
 <a th:href="'/deleteCustomerForm'">Delete a Customer</a>
+<a th:href="'/updateCustomerForm'">Update a Customer</a>
 
 </body>
 </html>
