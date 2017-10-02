@@ -22,14 +22,14 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
-    public void createCustomer(Customer customer) {
-        customerRepository.createCustomer(customer);
+    public Customer createCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 
 
     @Override
-    public List<Customer> findCustomer(String find) {
-        return customerRepository.findCustomer(find);
+    public List<Customer> findCustomer() {
+        return customerRepository.findAll();
     }
 
 
