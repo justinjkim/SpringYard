@@ -9,7 +9,7 @@ public class Customer {
     @Id
     @GeneratedValue
     private Integer id;
-    
+
     private String firstName;
     private String lastName;
     private String phone;
