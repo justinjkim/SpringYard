@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <title>Update Customer</title>
 </head>
 <body>
-$END$
+
+<h1>Update a Customer</h1>
+
+<form action="index.html" th:action="'/update-customer'" method="post">
+    <input name="firstName" value="" placeholder="First Name" /><br />
+    <input name="lastName" value="" placeholder="Last Name" /><br />
+    <input name="phone" value="" placeholder="Phone Number" /><br />
+    <input name="email" value="" placeholder="Email Address" /><br />
+
+    <button>Update</button>
+</form>
 </body>
 </html>
