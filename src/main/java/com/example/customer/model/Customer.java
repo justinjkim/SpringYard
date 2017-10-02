@@ -1,13 +1,19 @@
 package com.example.customer.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Customer {
-    String firstName;
-    String lastName;
-    String phone;
-    String email;
+    @Id
+    @GeneratedValue
+    private Integer id;
+    
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String email;
 
     public Customer(String firstName, String lastName, String phone, String email) {
         this.firstName = firstName;
