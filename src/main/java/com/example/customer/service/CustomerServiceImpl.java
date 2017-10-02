@@ -20,11 +20,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-    @Override
-    public List<Customer> listAllCustomers() {
-        return customerRepository.listAllCustomers();
-    }
-
 
     @Override
     public void createCustomer(Customer customer) {
@@ -40,12 +35,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void updateCustomer(Customer customer) {
-
+        customerRepository.updateCustomer(customer);
     }
 
 
     @Override
     public void deleteCustomer(Customer customer) {
-
+        customerRepository.deleteCustomer(customer);
     }
 }
