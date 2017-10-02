@@ -1,5 +1,8 @@
 package com.example.customer.model;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Customer {
     String firstName;
     String lastName;
