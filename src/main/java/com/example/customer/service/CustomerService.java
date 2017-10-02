@@ -8,5 +8,5 @@ public interface CustomerService {
     Customer createCustomer(Customer customer);
     List<Customer> findCustomer();
     Customer updateCustomer(Customer customer);
-    void deleteCustomer(Customer customer);
+    void deleteCustomer(Integer id);
 }
